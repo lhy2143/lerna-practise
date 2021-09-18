@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        margin: auto;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      .first {
+        text-align: left;
+      }
+      .second {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <div id="result"></div>
+    </div>
+    <script>
+      let result = "";
+      sendAjax();
+
+      function generateTable(arr) {
+        let table = `<table>`;
+        JSON.parse(arr).forEach((item, index) => {
+          if (index === 0) {
+            table += `<tr>
+                        <th>${item[0]}</th>
+                        <th>${item[1]}</th>
+                      </tr>`;
+          } else {
+            table += `<tr>
+                        <td class="first">${item[0]}</td>
+                        <td class="second">${item[1]}</td>
+                      </tr>`;
+          }
+        });
+        table += `</table>`;
+        return table;
+      }
+      function sendAjax() {
+        console.log(444);
+        //构造表单数据
+        var formData = new FormData();
+        formData.append("username", "johndoe");
+        formData.append("id", 123456);
+        //创建xhr对象
+        var xhr = new XMLHttpRequest();
+        //设置xhr请求的超时时间
+        xhr.timeout = 3000;
+        //设置响应返回的数据格式
+        xhr.responseType = "text";
+        //创建一个 post 请求，采用异步
+        xhr.open("GET", "/result", true);
+        //注册相关事件回调处理函数
+        xhr.onload = function (e) {
+          if (this.status == 200 || this.status == 304) {
+            console.log("result,", this.responseText);
+
+            document.querySelector("#result").innerHTML = generateTable(
+              this.responseText
+            );
+          }
+        };
+        xhr.ontimeout = function (e) {
+          console.log(e);
+        };
+        xhr.onerror = function (e) {
+          console.log(e);
+        };
+        xhr.upload.onprogress = function (e) {
+          console.log(e);
+        };
+
+        //发送数据
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

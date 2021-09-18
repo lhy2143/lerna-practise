@@ -1,0 +1,35 @@
+{
+  "name": "@commands/lint",
+  "version": "0.2.3",
+  "description": "> TODO: description",
+  "author": "liuhy32826 <liuhy32826@hundsun.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "command.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "config"
+  ],
+  "publishConfig": {
+    "registry": "http://172.27.24.217:2748/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@172.27.24.217:7022/Lhy/fip-tools.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cli-progress": "^3.9.0",
+    "enquirer": "^2.3.6",
+    "shelljs": "^0.8.4"
+  },
+  "gitHead": "07d742062e405c4eed7e762ff03e180b6f91ed20"
+}

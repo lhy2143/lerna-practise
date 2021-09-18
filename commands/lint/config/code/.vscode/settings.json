@@ -1,0 +1,30 @@
+{
+    //eslint
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "typescript.tsdk": "./node_modules/typescript/lib", // 代替 vscode 的 ts 语法智能提示
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    //代码风格
+    "git.ignoreLimitWarning": true,
+    "gulp.autoDetect": "off",
+    "files.insertFinalNewline": true,
+    "[plaintext]": {
+        "files.insertFinalNewline": false
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.tsc.autoDetect": "off",
+    "typescript.format.semicolons": "insert"
+}

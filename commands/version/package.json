@@ -1,0 +1,17 @@
+{
+  "name": "@commands/version",
+  "version": "0.2.2",
+  "description": "",
+  "main": "command.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "enquirer": "^2.3.6",
+    "semver": "^7.3.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "gitHead": "07d742062e405c4eed7e762ff03e180b6f91ed20"
+}

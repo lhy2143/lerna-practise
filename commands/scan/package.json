@@ -1,0 +1,84 @@
+{
+  "name": "@commands/scan",
+  "version": "0.2.2",
+  "description": "File scanning module for Node.js",
+  "main": "command.js",
+  "typings": "lib/typings/index.d.ts",
+  "module": "lib/esm/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.mjs",
+      "require": "./command.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "test": "ava",
+    "lint": "(tsc -p . --noEmit) && (eslint . --ext .ts) && (prettier --list-different src/*.ts)",
+    "prepare": "yarn build:clean && yarn build:esm && yarn build:cjs && yarn build:typings",
+    "build:clean": "rm -rf lib",
+    "build:esm": "tsc --module es2015 --target es2018 --outDir lib/esm && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir lib/cjs",
+    "build:typings": "tsc --declaration --outDir lib/typings --emitDeclarationOnly"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@172.27.24.217:7022/Lhy/fip-tools.git"
+  },
+  "keywords": [
+    "scandir",
+    "steelbrain",
+    "files",
+    "scan"
+  ],
+  "author": "steelbrain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steelbrain/scandir/issues"
+  },
+  "files": [
+    "lib/*",
+    "scan.js",
+    "data.js",
+    "deleteComments/*"
+  ],
+  "homepage": "https://github.com/steelbrain/scandir#readme",
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "ava": "^3.11.1",
+    "eslint-config-steelbrain": "^10.0.0-beta2",
+    "glob": "^7.1.7",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.8.3",
+    "@babel/parser": "^7.8.3",
+    "decomment": "^0.9.4",
+    "esprima": "4.0.1",
+    "http-server": "^0.12.3",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.0.0",
+    "koa-static-server": "^1.5.2",
+    "sb-promise-queue": "^2.1.0",
+    "xlsx": "^0.16.9"
+  },
+  "ava": {
+    "files": [
+      "test/*-test.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register/transpile-only"
+    ]
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "gitHead": "07d742062e405c4eed7e762ff03e180b6f91ed20"
+}
