@@ -8,7 +8,7 @@ yarn add @fip/cli@latest
 
 在项目根目录下执行如下：
 ```
-npx fip lint --init
+npx fip lint init
 ```
 
 2、发包版本管理

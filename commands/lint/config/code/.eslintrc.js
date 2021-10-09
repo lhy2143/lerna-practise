@@ -8,7 +8,6 @@ module.exports = {
     // https://github.com/prettier/eslint-config-prettier
     // 将prettier加在最后-Turns off all rules that are unnecessary or might conflict with Prettier.
     extends: ['airbnb-base', 'prettier'],
-    // extends: ['eslint:recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 12,
@@ -24,14 +23,16 @@ module.exports = {
         'import/extensions': ['.ts', '.js', '.tsx', '.jsx', 'json'],
         'import/newline-after-import': 'off'
     },
+    // 0 = off, 1 = warn, 2 = error
     rules: {
-        quotes: ['off', 'any', { avoidEscape: true }],
+        quotes: ['error', 'single', { avoidEscape: true }],
+        // 最后一行的逗号
+        'comma-dangle': ['error', 'never'],
         'no-unused-vars': [
             'off',
             { vars: 'all', args: 'after-used', ignoreRestSiblings: true }
         ],
         'linebreak-style': ['off', 'windows'],
-        // 0 = off, 1 = warn, 2 = error
         'import/prefer-default-export': 'off',
         'import/extensions': [
             'off',
@@ -47,8 +48,7 @@ module.exports = {
             'off',
             { commonjs: true, caseSensitive: true }
         ],
-        // 最后一行的逗号
-        'comma-dangle': ['error', 'never'],
+
         'max-len': [
             'error',
             100,
